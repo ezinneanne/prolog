@@ -1,17 +1,9 @@
-% factorial(Number, Result) calculates the factorial of a number
-% factorial(0, 1) :- !.  % Base case: factorial of 0 is 1 (cut)
-% factorial(Number, Result) :-
-  % Number > 0,
-  % NewNumber is Number - 1,
-  % factorial(NewNumber, FactorialOfPrevious),  % Recursive call to find factorial of (Number - 1)
-  Result is FactorialOfPrevious * Number.
+% Base case: The factorial of 0 is 1
+factorial(0, 1).
 
-% Main program: get user input, calculate factorial, and print the result
-get_factorial :-
-  write('Enter a non-negative number: '),
-  read(Number),
-  ( Number < 0 -> write('Factorial is not defined for negative numbers.') ;  % Error handling for negatives
-    factorial(Number, Result),
-    format('The factorial of ~w is ~w', [Number, Result])
-  ),
-  nl.  % Print a newline
+% Recursive case: The factorial of N is N * factorial of (N-1)
+factorial(N, F) :-
+    N > 0,
+    N1 is N - 1,
+    factorial(N1, F1),
+    F is N * F1.
