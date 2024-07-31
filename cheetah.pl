@@ -18,3 +18,10 @@ is_cheetah(Animal) :-
     habitat(Animal, savanna),
     diet(Animal, carnivore),
     speed(Animal, fast).
+
+
+
+
+
+
+
