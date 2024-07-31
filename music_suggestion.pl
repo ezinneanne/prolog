@@ -1,5 +1,6 @@
 % is used to add comments in code in prolog language
-suggest(S) :- write('What is your personality type?: '),read(P),write('How is your mood?: Enter happy or sad'),read(M), song(S,_,M,P).
+suggest(S) :- write('What is your personality type?: '),
+read(P),write('How is your mood?: Enter happy or sad'),read(M), song(S,_,M,P).
 
 %Happy_Mood
 song('https://www.youtube.com/watch?v=c8YIlU_30Kk',jazz,M,P):- M = happy ,(P= (entj) ; P=(enfj) ; P=(enfp)),!.
