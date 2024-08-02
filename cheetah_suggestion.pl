@@ -1,5 +1,6 @@
 % Define the main predicate to suggest an animal based on the characteristics
 suggest_animal :-
+    write('Kindly describe the animal:'), nl,
     write('What is the speed range of the animal (fast F or slow S)? '), 
     read(Speed),
     write('Is the animal spotted or plain (spotted S or plain P)? '), 
@@ -12,12 +13,15 @@ suggest_animal :-
     read(FacialStreaks),
     determine_animal(Speed, Pattern, BodyType, HeadSize, FacialStreaks).
 
-% Determine the animal based on the characteristics
-determine_animal('F', 'S', 'S', 'S', 'T') :-
-    write('It is definitely a cheetah'), nl, !.
-
-determine_animal(_, _, _, _, _) :-
-    write('The animal is not a cheetah'), nl, !.
+% Determine the animal based on the characteristics using if-then-else
+determine_animal(Speed, Pattern, BodyType, HeadSize, FacialStreaks) :-
+    (Speed = 'F', Pattern = 'S', BodyType = 'S', HeadSize = 'S', FacialStreaks = 'T' ->
+        write('It is definitely a cheetah'), nl
+    ; FacialStreaks = 'T' ->
+        write('It is probably a cheetah as only cheetahs have tear-like streaks'), nl
+    ; 
+        write('It is not a cheetah'), nl
+    ).
 
 % Main predicate to start the expert system
 start :- 
