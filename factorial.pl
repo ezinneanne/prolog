@@ -10,13 +10,13 @@
 
 
 
-% Define the factorial predicate
+% A program to find the factorial of a number
 factorial(0, 1).  % Base case: factorial of 0 is 1
-factorial(N, F) :-
+factorial(N, R) :-
     N > 0,           % Ensure N is positive
-    N1 is N - 1,     % Decrease N by 1
-    factorial(N1, F1), % Recursive call
-    F is N * F1.     % Calculate factorial
+    S is N - 1,     % Decrease N by 1
+    factorial(S, T), % Recursive call
+    R is N * T.     % Calculate factorial
 
 % Main predicate to read input, calculate factorial, and print result
 main :-
